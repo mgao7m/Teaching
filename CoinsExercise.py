@@ -3,6 +3,9 @@ import math
 import numpy as np
 import random
 
+def entropy(distribution):
+    return -sum(p * math.log2(p) for p in distribution if p != 0)
+
 # Creates all possible weighing options
 def create_weighing_options(n):
     coins = range(n)
@@ -37,7 +40,7 @@ def choose_optimal_weighing(prior, weighing_options):
             kl_divergence = 0
             for coin in range(n):
                 if posterior[coin] != 0:
-                    kl_divergence += posterior[coin] * math.log(posterior[coin]/prior[coin])
+                    kl_divergence += posterior[coin] * math.log2(posterior[coin]/prior[coin])
             expected_information_gain += p_outcome*kl_divergence
         expected_information_gains.append(expected_information_gain)
     optimal_weighing = weighing_options[np.argmax(expected_information_gains)]
@@ -50,8 +53,9 @@ def get_outcome(weighing, counterfeit):
             return outcome
 
 # Checks when we've determined coin
-def done(distribution):
-    return 1.0 in distribution
+def done(distribution, tol=1e-6):
+    return entropy(distribution) < tol
+    
 
 # Variables at the beginning
 n = 13

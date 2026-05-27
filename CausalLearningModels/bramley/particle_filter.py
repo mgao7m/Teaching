@@ -1,19 +1,5 @@
-"""Particle filter over DAGs with MCMC rejuvenation.
+# particle filter over DAGs with MCMC rejuvenation.
 
-Each time step:
-
-    1. Reweight: log w_i  +=  log P(obs_t | dag_i, intervention_t).
-    2. If there is more than one particle and the effective sample size has
-       fallen below threshold, systematically resample (weights are reset to
-       uniform).
-    3. Always apply a few MCMC steps (symmetric single-edge toggle proposal)
-       targeting the posterior given the entire observation history.
-
-Rejuvenation runs every step regardless of resampling because that is what
-actually moves the chain. In particular, the n_particles=1 case (Bramley-like
-single-hypothesis learner) relies entirely on MCMC: there is no resampling
-to do, and without an unconditional rejuvenation step the chain never moves.
-"""
 from __future__ import annotations
 
 import math

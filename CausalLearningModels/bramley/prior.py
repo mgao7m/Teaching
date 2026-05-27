@@ -1,9 +1,4 @@
-"""Prior over DAGs.
 
-Independent Bernoulli(`p_edge`) per directed edge, restricted to the acyclic
-subset. We never compute the normalizing constant: it cancels in every MH
-ratio we use.
-"""
 from __future__ import annotations
 
 import math

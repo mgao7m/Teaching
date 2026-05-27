@@ -1,0 +1,62 @@
+# ── Python (CausalLearningModels/, CoinsExercise.py) ─────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# packaging / build
+build/
+dist/
+*.egg-info/
+*.egg
+.eggs/
+pip-wheel-metadata/
+
+# virtual envs
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.ipynb_checkpoints/
+
+# generated artifacts from experiments / demos
+*.npy
+*.npz
+*.pkl
+*.pickle
+results/
+runs/
+outputs/
+
+# ── Editor / IDE ─────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.sw?
+
+# ── OS junk ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Env / secrets ────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
